@@ -18,6 +18,9 @@
 		7F65E74627F1AA6500BAE91C /* LoggedOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F65E74227F1AA6500BAE91C /* LoggedOutViewController.swift */; };
 		7F65E74727F1AA6500BAE91C /* LoggedOutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F65E74327F1AA6500BAE91C /* LoggedOutBuilder.swift */; };
 		7F65E74827F1AA6500BAE91C /* LoggedOutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F65E74427F1AA6500BAE91C /* LoggedOutInteractor.swift */; };
+		7F65E74A27F1BDF800BAE91C /* RootComponent+LoggedOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F65E74927F1BDF800BAE91C /* RootComponent+LoggedOut.swift */; };
+		7FB1984527F29311001F0F82 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1984427F29311001F0F82 /* UINavigationController.swift */; };
+		7FB1984727F29334001F0F82 /* LoadingPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1984627F29334001F0F82 /* LoadingPresentable.swift */; };
 		7FC6E13927F18DFE00E7B2BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC6E13827F18DFE00E7B2BD /* AppDelegate.swift */; };
 		7FC6E13B27F18DFE00E7B2BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC6E13A27F18DFE00E7B2BD /* SceneDelegate.swift */; };
 		7FC6E14227F18DFF00E7B2BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FC6E14127F18DFF00E7B2BD /* Assets.xcassets */; };
@@ -60,6 +63,9 @@
 		7F65E74227F1AA6500BAE91C /* LoggedOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutViewController.swift; sourceTree = "<group>"; };
 		7F65E74327F1AA6500BAE91C /* LoggedOutBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutBuilder.swift; sourceTree = "<group>"; };
 		7F65E74427F1AA6500BAE91C /* LoggedOutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutInteractor.swift; sourceTree = "<group>"; };
+		7F65E74927F1BDF800BAE91C /* RootComponent+LoggedOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootComponent+LoggedOut.swift"; sourceTree = "<group>"; };
+		7FB1984427F29311001F0F82 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		7FB1984627F29334001F0F82 /* LoadingPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPresentable.swift; sourceTree = "<group>"; };
 		7FC6E13527F18DFE00E7B2BD /* RIBsTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RIBsTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FC6E13827F18DFE00E7B2BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FC6E13A27F18DFE00E7B2BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +114,7 @@
 		7F65E73327F193F700BAE91C /* RIBs */ = {
 			isa = PBXGroup;
 			children = (
+				7FB1984327F292FD001F0F82 /* Common */,
 				7F65E73527F1943D00BAE91C /* Root */,
 				7F65E74027F1AA4A00BAE91C /* LoggedOut */,
 			);
@@ -132,6 +139,7 @@
 				7F65E73727F1945100BAE91C /* RootViewController.swift */,
 				7F65E73827F1945100BAE91C /* RootBuilder.swift */,
 				7F65E73927F1945100BAE91C /* RootInteractor.swift */,
+				7F65E74927F1BDF800BAE91C /* RootComponent+LoggedOut.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -145,6 +153,15 @@
 				7F65E74427F1AA6500BAE91C /* LoggedOutInteractor.swift */,
 			);
 			path = LoggedOut;
+			sourceTree = "<group>";
+		};
+		7FB1984327F292FD001F0F82 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7FB1984427F29311001F0F82 /* UINavigationController.swift */,
+				7FB1984627F29334001F0F82 /* LoadingPresentable.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		7FC6E12C27F18DFE00E7B2BD = {
@@ -463,12 +480,15 @@
 				7F65E73B27F1945100BAE91C /* RootViewController.swift in Sources */,
 				7F65E73A27F1945100BAE91C /* RootRouter.swift in Sources */,
 				7F65E74727F1AA6500BAE91C /* LoggedOutBuilder.swift in Sources */,
+				7F65E74A27F1BDF800BAE91C /* RootComponent+LoggedOut.swift in Sources */,
 				7F65E73F27F1946E00BAE91C /* AppComponent.swift in Sources */,
+				7FB1984527F29311001F0F82 /* UINavigationController.swift in Sources */,
 				7F65E74527F1AA6500BAE91C /* LoggedOutRouter.swift in Sources */,
 				7F65E73D27F1945100BAE91C /* RootInteractor.swift in Sources */,
 				7FC6E13927F18DFE00E7B2BD /* AppDelegate.swift in Sources */,
 				7FC6E13B27F18DFE00E7B2BD /* SceneDelegate.swift in Sources */,
 				7F65E74627F1AA6500BAE91C /* LoggedOutViewController.swift in Sources */,
+				7FB1984727F29334001F0F82 /* LoadingPresentable.swift in Sources */,
 				7F65E73C27F1945100BAE91C /* RootBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
