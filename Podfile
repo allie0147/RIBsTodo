@@ -18,6 +18,7 @@ target 'RIBsTodo' do
   pod 'RxSwift', '~> 5.0'
   pod 'RxCocoa', '~> 5.0'
   pod 'SnapKit'
+  pod 'Then'
 
   target 'RIBsTodoTests' do
     inherit! :search_paths
