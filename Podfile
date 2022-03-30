@@ -14,12 +14,6 @@ target 'RIBsTodo' do
  
    # Pods for RIBsTodo
 
-  pod 'RIBs', :git => 'https://github.com/uber/RIBs.git', :tag => 'v0.10.0'
-  pod 'RxSwift', '~> 5.0'
-  pod 'RxCocoa', '~> 5.0'
-  pod 'SnapKit'
-  pod 'Then'
-
   target 'RIBsTodoTests' do
     inherit! :search_paths
     # Pods for testing
