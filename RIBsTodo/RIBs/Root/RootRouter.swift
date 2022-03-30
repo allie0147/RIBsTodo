@@ -5,6 +5,7 @@
 //  Created by Allie Kim on 2022/03/28.
 //
 
+import UIKit
 import RIBs
 
 protocol RootInteractable: Interactable, LoggedOutListener {

@@ -5,7 +5,7 @@
 //  Created by Allie Kim on 2022/03/29.
 //
 
-import Foundation
+import UIKit
 import RIBs
 
 extension UINavigationController: ViewControllable {
