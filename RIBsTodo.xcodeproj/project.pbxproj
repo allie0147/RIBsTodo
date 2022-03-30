@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F406A0927F3FDBA00252F63 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 7F406A0827F3FDBA00252F63 /* RxBlocking */; };
-		7F406A0B27F3FDBA00252F63 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7F406A0A27F3FDBA00252F63 /* RxCocoa */; };
-		7F406A0D27F3FDBA00252F63 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 7F406A0C27F3FDBA00252F63 /* RxRelay */; };
-		7F406A0F27F3FDBA00252F63 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 7F406A0E27F3FDBA00252F63 /* RxTest */; };
 		7F65E73A27F1945100BAE91C /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F65E73627F1945100BAE91C /* RootRouter.swift */; };
 		7F65E73B27F1945100BAE91C /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F65E73727F1945100BAE91C /* RootViewController.swift */; };
 		7F65E73C27F1945100BAE91C /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F65E73827F1945100BAE91C /* RootBuilder.swift */; };
@@ -21,6 +17,9 @@
 		7F65E74727F1AA6500BAE91C /* LoggedOutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F65E74327F1AA6500BAE91C /* LoggedOutBuilder.swift */; };
 		7F65E74827F1AA6500BAE91C /* LoggedOutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F65E74427F1AA6500BAE91C /* LoggedOutInteractor.swift */; };
 		7F65E74A27F1BDF800BAE91C /* RootComponent+LoggedOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F65E74927F1BDF800BAE91C /* RootComponent+LoggedOut.swift */; };
+		7F78352727F4237400EED697 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 7F78352627F4237400EED697 /* loading.json */; };
+		7F78352C27F42E9700EED697 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 7F78352B27F42E9700EED697 /* RxCocoa */; };
+		7F78352E27F42E9700EED697 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 7F78352D27F42E9700EED697 /* RxRelay */; };
 		7F9A8CA427F2DA1300C98306 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9A8CA327F2DA1300C98306 /* Log.swift */; };
 		7FB1984527F29311001F0F82 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1984427F29311001F0F82 /* UINavigationController.swift */; };
 		7FB1984727F29334001F0F82 /* LoadingPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB1984627F29334001F0F82 /* LoadingPresentable.swift */; };
@@ -65,6 +64,7 @@
 		7F65E74327F1AA6500BAE91C /* LoggedOutBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutBuilder.swift; sourceTree = "<group>"; };
 		7F65E74427F1AA6500BAE91C /* LoggedOutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutInteractor.swift; sourceTree = "<group>"; };
 		7F65E74927F1BDF800BAE91C /* RootComponent+LoggedOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootComponent+LoggedOut.swift"; sourceTree = "<group>"; };
+		7F78352627F4237400EED697 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading.json; path = ../../../../Downloads/loading.json; sourceTree = "<group>"; };
 		7F9A8CA327F2DA1300C98306 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		7FB1984427F29311001F0F82 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		7FB1984627F29334001F0F82 /* LoadingPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPresentable.swift; sourceTree = "<group>"; };
@@ -86,14 +86,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F406A0F27F3FDBA00252F63 /* RxTest in Frameworks */,
-				7F406A0B27F3FDBA00252F63 /* RxCocoa in Frameworks */,
+				7F78352C27F42E9700EED697 /* RxCocoa in Frameworks */,
 				7FF1340127F3F97D00C83064 /* Then in Frameworks */,
-				7F406A0D27F3FDBA00252F63 /* RxRelay in Frameworks */,
+				7F78352E27F42E9700EED697 /* RxRelay in Frameworks */,
 				7FF133FE27F3F95200C83064 /* SnapKit in Frameworks */,
 				7FF133F827F3F7A100C83064 /* Lottie in Frameworks */,
 				7FF133FB27F3F82200C83064 /* RIBs in Frameworks */,
-				7F406A0927F3FDBA00252F63 /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +156,13 @@
 			path = LoggedOut;
 			sourceTree = "<group>";
 		};
+		7F78352827F4274800EED697 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7F9A8CA227F2D9FB00C98306 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +187,7 @@
 				7FC6E14E27F18DFF00E7B2BD /* RIBsTodoTests */,
 				7FC6E15827F18DFF00E7B2BD /* RIBsTodoUITests */,
 				7FC6E13627F18DFE00E7B2BD /* Products */,
+				7F78352827F4274800EED697 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,6 +207,7 @@
 				7F9A8CA227F2D9FB00C98306 /* Shared */,
 				7FC6E14127F18DFF00E7B2BD /* Assets.xcassets */,
 				7FC6E14327F18DFF00E7B2BD /* LaunchScreen.storyboard */,
+				7F78352627F4237400EED697 /* loading.json */,
 				7FC6E14627F18DFF00E7B2BD /* Info.plist */,
 				7F65E73427F193FF00BAE91C /* AppStart */,
 				7F65E73327F193F700BAE91C /* RIBs */,
@@ -246,10 +253,8 @@
 				7FF133FA27F3F82200C83064 /* RIBs */,
 				7FF133FD27F3F95200C83064 /* SnapKit */,
 				7FF1340027F3F97D00C83064 /* Then */,
-				7F406A0827F3FDBA00252F63 /* RxBlocking */,
-				7F406A0A27F3FDBA00252F63 /* RxCocoa */,
-				7F406A0C27F3FDBA00252F63 /* RxRelay */,
-				7F406A0E27F3FDBA00252F63 /* RxTest */,
+				7F78352B27F42E9700EED697 /* RxCocoa */,
+				7F78352D27F42E9700EED697 /* RxRelay */,
 			);
 			productName = RIBsTodo;
 			productReference = 7FC6E13527F18DFE00E7B2BD /* RIBsTodo.app */;
@@ -348,6 +353,7 @@
 			files = (
 				7FC6E14527F18DFF00E7B2BD /* LaunchScreen.storyboard in Resources */,
 				7FC6E14227F18DFF00E7B2BD /* Assets.xcassets in Resources */,
+				7F78352727F4237400EED697 /* loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,11 +559,13 @@
 		7FC6E16027F18DFF00E7B2BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F7DAHNMXP5;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RIBsTodo/Info.plist;
@@ -584,11 +592,13 @@
 		7FC6E16127F18DFF00E7B2BD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F7DAHNMXP5;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RIBsTodo/Info.plist;
@@ -793,25 +803,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		7F406A0827F3FDBA00252F63 /* RxBlocking */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7F406A0727F3FDBA00252F63 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxBlocking;
-		};
-		7F406A0A27F3FDBA00252F63 /* RxCocoa */ = {
+		7F78352B27F42E9700EED697 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7F406A0727F3FDBA00252F63 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
-		7F406A0C27F3FDBA00252F63 /* RxRelay */ = {
+		7F78352D27F42E9700EED697 /* RxRelay */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7F406A0727F3FDBA00252F63 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxRelay;
-		};
-		7F406A0E27F3FDBA00252F63 /* RxTest */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7F406A0727F3FDBA00252F63 /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxTest;
 		};
 		7FF133F727F3F7A100C83064 /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;

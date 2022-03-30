@@ -15,10 +15,13 @@ protocol LoggedOutRouting: ViewableRouting {
 protocol LoggedOutPresentable: Presentable {
     var listener: LoggedOutPresentableListener? { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
+    func emptyInput()
+    func validationFailed()
 }
 
 protocol LoggedOutListener: AnyObject {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func didLogin(withId id: String, password: String)
 }
 
 final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, LoggedOutInteractable, LoggedOutPresentableListener {
@@ -42,10 +45,17 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
         super.willResignActive()
         // TODO: Pause any business logic.
     }
-        
+
     // MARK: - LoggedOutPresentableListener
-    
-    func login(withId: String?, password: String?) {
+
+    func login(withId id: String?, password: String?) {
+        Log.d("ID: \(id), PWD: \(password), login tapped")
+
+        guard id == nil || password == nil else {
+            self.presenter.emptyInput()
+            return
+        }
         
+        // regex
     }
 }

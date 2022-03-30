@@ -15,12 +15,20 @@ protocol LoggedOutPresentableListener: AnyObject {
     // TODO: Declare properties and methods that the view controller can invoke to perform
     // business logic, such as signIn(). This protocol is implemented by the corresponding
     // interactor class.
-    func login(withId: String?, password: String?)
+    func login(withId id: String?, password: String?)
 }
 
 final class LoggedOutViewController: UIViewController, LoggedOutPresentable, LoggedOutViewControllable {
 
     weak var listener: LoggedOutPresentableListener?
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("Method is not supported")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +39,13 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
         view.addSubview(loginButton)
         view.addSubview(idUnderView)
         view.addSubview(passwordUnderView)
-
+        
+//        let tapGesture = UITapGestureRecognizer()
+//        view.addGestureRecognizer(tapGesture)
+//        tapGesture.rx.event.bind(onNext: { [weak self] _ in
+//            self?.resignFirstResponder()
+//        }).disposed(by: disposeBag)
+        
         bindUI()
     }
 
@@ -39,6 +53,20 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
         super.viewWillLayoutSubviews()
 
         bindLayout()
+    }
+
+    // MARK: - LoggedOutPresentable
+
+    func emptyInput() {
+        Log.d("Empty input")
+        showLoading()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: { [weak self] in
+            self?.hideLoading()
+        })
+    }
+
+    func validationFailed() {
+        Log.d("Validation Failed")
     }
 
     // MARK: - Private
@@ -109,9 +137,16 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
     private func didTapLoginButton() {
         loginButton.rx.tap
             .bind(onNext: { [weak self] in
-            guard let `self` = self else { return }
-            self.listener?.login(withId: self.idTextField.text,
-                                 password: self.passwordTextField.text)
-        }).disposed(by: disposeBag)
+            guard let `self` = self else {
+                return
+            }
+            guard let listener = self.listener else {
+                return
+            }
+
+            listener.login(withId: self.idTextField.text,
+                           password: self.passwordTextField.text)
+        })
+            .disposed(by: disposeBag)
     }
 }

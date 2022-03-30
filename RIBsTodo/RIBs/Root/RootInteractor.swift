@@ -42,4 +42,11 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
         super.willResignActive()
         // TODO: Pause any business logic.
     }
+
+    // MARK: - LoggedOutListener
+
+    func didLogin(withId id: String, password: String) {
+        
+        
+    }
 }
