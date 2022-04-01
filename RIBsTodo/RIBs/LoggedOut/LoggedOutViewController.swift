@@ -39,13 +39,7 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
         view.addSubview(loginButton)
         view.addSubview(idUnderView)
         view.addSubview(passwordUnderView)
-        
-//        let tapGesture = UITapGestureRecognizer()
-//        view.addGestureRecognizer(tapGesture)
-//        tapGesture.rx.event.bind(onNext: { [weak self] _ in
-//            self?.resignFirstResponder()
-//        }).disposed(by: disposeBag)
-        
+
         bindUI()
     }
 
@@ -60,9 +54,10 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
     func emptyInput() {
         Log.d("Empty input")
         showLoading()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: { [weak self] in
-            self?.hideLoading()
-        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3,
+                                      execute: { [weak self] in
+                                          self?.hideLoading()
+                                      })
     }
 
     func validationFailed() {
@@ -72,6 +67,7 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
     // MARK: - Private
     private let idTextField = UITextField().then {
         $0.becomeFirstResponder()
+        $0.keyboardType = .emailAddress
         $0.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
         $0.placeholder = "Id"
     }
@@ -81,6 +77,10 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
     }
 
     private let passwordTextField = UITextField().then {
+        $0.returnKeyType = .done
+        $0.keyboardType = .alphabet
+        $0.isSecureTextEntry = true
+        $0.enablesReturnKeyAutomatically = true
         $0.layer.borderColor = UIColor.black.cgColor
         $0.layer.sublayerTransform = CATransform3DMakeTranslation(10, 0, 0)
         $0.placeholder = "Password"
@@ -132,21 +132,53 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
 
     private func bindUI() {
         didTapLoginButton()
+        dismissKeyboard()
+        didTapReturnKeyboard()
     }
 
     private func didTapLoginButton() {
         loginButton.rx.tap
-            .bind(onNext: { [weak self] in
-            guard let `self` = self else {
-                return
-            }
-            guard let listener = self.listener else {
-                return
-            }
+            .bind(
+            onNext: { [weak self] in
+                guard let `self` = self else {
+                    return
+                }
+                guard let listener = self.listener else {
+                    return
+                }
+                self.view.endEditing(true)
+                listener.login(
+                    withId: self.idTextField.text,
+                    password: self.passwordTextField.text
+                )
+            })
+            .disposed(by: disposeBag)
+    }
 
-            listener.login(withId: self.idTextField.text,
-                           password: self.passwordTextField.text)
-        })
+    private func dismissKeyboard() {
+        let tapGesture = UITapGestureRecognizer()
+        view.addGestureRecognizer(tapGesture)
+        tapGesture.rx.event
+            .bind(onNext: { [weak self] _ in
+            self?.view.endEditing(true)
+        }).disposed(by: disposeBag)
+    }
+
+    private func didTapReturnKeyboard() {
+        idTextField.rx
+            .controlEvent(.editingDidEndOnExit)
+            .bind(
+            onNext: { [weak self] _ in
+                self?.passwordTextField.becomeFirstResponder()
+            })
+            .disposed(by: disposeBag)
+
+        passwordTextField.rx
+            .controlEvent(.editingDidEndOnExit)
+            .bind(
+            onNext: { [weak self] _ in
+                self?.didTapLoginButton()
+            })
             .disposed(by: disposeBag)
     }
 }
