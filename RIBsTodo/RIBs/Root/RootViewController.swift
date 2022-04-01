@@ -27,6 +27,7 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
     }
 
     func present(viewController: ViewControllable) {
+        viewController.uiviewController.modalPresentationStyle = .overCurrentContext
         present(viewController.uiviewController,
                 animated: true,
                 completion: nil)
