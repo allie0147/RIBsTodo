@@ -8,7 +8,7 @@
 import UIKit
 import RIBs
 
-protocol RootInteractable: Interactable, LoggedOutListener {
+protocol RootInteractable: Interactable, LoggedOutListener, LoggedInListener {
     var router: RootRouting? { get set }
     var listener: RootListener? { get set }
 }
@@ -16,6 +16,8 @@ protocol RootInteractable: Interactable, LoggedOutListener {
 protocol RootViewControllable: ViewControllable {
     // TODO: Declare methods the router invokes to manipulate the view hierarchy.
     func replaceModal(viewController: ViewControllable)
+    func dismiss(viewController: ViewControllable)
+    func present(viewController: ViewControllable)
 }
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
@@ -23,8 +25,11 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     // TODO: Constructor inject child builder protocols to allow building children.
     init(interactor: RootInteractable,
          viewController: RootViewControllable,
-         loggedOutBuilder: LoggedOutBuildable) {
+         loggedOutBuilder: LoggedOutBuildable,
+         loggedInBuilder: LoggedInBuildable) {
         self.loggedOutBuilder = loggedOutBuilder
+        self.loggedInBuilder = loggedInBuilder
+
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
@@ -35,17 +40,30 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         routeToLoggedOut()
     }
 
+    func routeToLoggedIn() {
+        if let loggedOut = loggedOutRouter {
+            detachChild(loggedOut)
+            viewController.dismiss(viewController: loggedOut.viewControllable)
+            self.loggedOutRouter = nil
+        }
+        let loggedIn = loggedInBuilder.build(withListener: interactor)
+        attachChild(loggedIn)
+    }
+
     // MARK: - Private
     private var loggedOutRouter: ViewableRouting?
 
     private let loggedOutBuilder: LoggedOutBuildable
+    private let loggedInBuilder: LoggedInBuildable
 
     private func routeToLoggedOut() {
         let loggedOut = loggedOutBuilder.build(withListener: interactor)
         self.loggedOutRouter = loggedOut
         attachChild(loggedOut)
-        let navController = UINavigationController(root: loggedOut.viewControllable)
-
-        viewController.replaceModal(viewController: navController)
+        viewController.present(viewController: loggedOut.viewControllable)
+//        let navController = UINavigationController(root: loggedOut.viewControllable)
+//
+//        viewController.replaceModal(viewController: navController)
     }
+
 }

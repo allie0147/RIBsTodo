@@ -16,5 +16,9 @@ protocol RootDependencyLoggedIn: Dependency {
 
 extension RootComponent: LoggedInDependency {
 
+    var loggedInViewController: LoggedInViewControllable {
+        return rootViewController
+    }
+
     // TODO: Implement properties to provide for LoggedIn scope.
 }

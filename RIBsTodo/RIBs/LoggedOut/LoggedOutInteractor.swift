@@ -51,11 +51,13 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
     func login(withId id: String?, password: String?) {
         Log.d("ID: \(id), PWD: \(password), login tapped")
 
-        guard id == nil || password == nil else {
-            self.presenter.emptyInput()
-            return
-        }
-        
-        // regex
+//        guard id == nil || password == nil else {
+//            self.presenter.emptyInput()
+//            return
+//        }
+
+        // TODO: -regex
+
+        listener?.didLogin(withId: id!, password: password!)
     }
 }

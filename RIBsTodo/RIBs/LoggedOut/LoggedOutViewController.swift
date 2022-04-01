@@ -52,7 +52,7 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
     // MARK: - LoggedOutPresentable
 
     func emptyInput() {
-        Log.d("Empty input")
+        Log.i("Empty input")
         showLoading()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3,
                                       execute: { [weak self] in
@@ -61,7 +61,7 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
     }
 
     func validationFailed() {
-        Log.d("Validation Failed")
+        Log.i("Validation Failed")
     }
 
     // MARK: - Private
@@ -91,7 +91,7 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
     }
 
     private let loginButton = UIButton(type: .system).then {
-        $0.backgroundColor = .systemBlue
+        $0.backgroundColor = .systemPurple
         $0.layer.cornerRadius = 5
         $0.setTitleColor(.white, for: .normal)
         $0.setTitle("Login", for: .normal)

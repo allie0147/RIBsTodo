@@ -27,7 +27,13 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
     }
 
     func present(viewController: ViewControllable) {
-        present(viewController.uiviewController, animated: true, completion: nil)
+        present(viewController.uiviewController,
+                animated: true,
+                completion: nil)
+    }
+
+    func dismiss(viewController: ViewControllable) {
+        dismiss(animated: true, completion: nil)
     }
 
     func replaceModal(viewController: ViewControllable) {
@@ -64,4 +70,8 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
             }
         }
     }
+}
+
+extension RootViewController: LoggedInViewControllable {
+
 }
