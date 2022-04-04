@@ -52,7 +52,7 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
     // MARK: - LoggedOutPresentable
 
     func emptyInput() {
-        Log.i("Empty input")
+        log.verbose("Empty input")
         showLoading()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3,
                                       execute: { [weak self] in
@@ -61,7 +61,7 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
     }
 
     func validationFailed() {
-        Log.i("Validation Failed")
+        log.verbose("Validation Failed")
     }
 
     // MARK: - Private

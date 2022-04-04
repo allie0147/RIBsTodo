@@ -7,6 +7,7 @@
 
 import RIBs
 import RxSwift
+import SwiftyBeaver
 
 protocol LoggedOutRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
@@ -49,7 +50,7 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
     // MARK: - LoggedOutPresentableListener
 
     func login(withId id: String?, password: String?) {
-        Log.d("ID: \(id), PWD: \(password), login tapped")
+        log.info("ID: \(id), PWD: \(password), login tapped")
         let idWithDefault = id ?? ""
         let passwordWithDefault = password ?? ""
 

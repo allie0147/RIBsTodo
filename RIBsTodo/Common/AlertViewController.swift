@@ -1,20 +1,13 @@
 //
-//  LoadingPresentable.swift
+//  AlertViewController.swift
 //  RIBsTodo
 //
-//  Created by Allie Kim on 2022/03/29.
+//  Created by Allie Kim on 2022/04/04.
 //
 
 import Then
 import Lottie
 import UIKit
-
-protocol AlertPresentable: AnyObject {
-    func showLoadingIndicator()
-    func hideLoadingIndicator()
-    func showSuccess(with status: String?)
-    func showError(with status: String?)
-}
 
 final class AlertViewController: AlertPresentable {
 
@@ -69,16 +62,5 @@ final class AlertViewController: AlertPresentable {
     }
 
     func showError(with status: String?) {
-    }
-}
-
-extension UIViewController {
-
-    func showLoading() {
-        AlertViewController().showLoadingIndicator()
-    }
-
-    func hideLoading() {
-        AlertViewController().hideLoadingIndicator()
     }
 }
