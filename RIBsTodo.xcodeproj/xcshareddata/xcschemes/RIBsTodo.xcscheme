@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1300"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7FC6E13427F18DFE00E7B2BD"
+               BlueprintIdentifier = "A7CA1A13B7AEFECBA9C390EB"
                BuildableName = "RIBsTodo.app"
                BlueprintName = "RIBsTodo"
                ReferencedContainer = "container:RIBsTodo.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7FC6E14A27F18DFF00E7B2BD"
+               BlueprintIdentifier = "DE32872D1515ED3466846AE8"
                BuildableName = "RIBsTodoTests.xctest"
                BlueprintName = "RIBsTodoTests"
                ReferencedContainer = "container:RIBsTodo.xcodeproj">
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7FC6E15427F18DFF00E7B2BD"
+               BlueprintIdentifier = "E77B950F73A9D1E692BED6B6"
                BuildableName = "RIBsTodoUITests.xctest"
                BlueprintName = "RIBsTodoUITests"
                ReferencedContainer = "container:RIBsTodo.xcodeproj">
@@ -64,7 +64,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7FC6E13427F18DFE00E7B2BD"
+            BlueprintIdentifier = "A7CA1A13B7AEFECBA9C390EB"
             BuildableName = "RIBsTodo.app"
             BlueprintName = "RIBsTodo"
             ReferencedContainer = "container:RIBsTodo.xcodeproj">
@@ -81,7 +81,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7FC6E13427F18DFE00E7B2BD"
+            BlueprintIdentifier = "A7CA1A13B7AEFECBA9C390EB"
             BuildableName = "RIBsTodo.app"
             BlueprintName = "RIBsTodo"
             ReferencedContainer = "container:RIBsTodo.xcodeproj">

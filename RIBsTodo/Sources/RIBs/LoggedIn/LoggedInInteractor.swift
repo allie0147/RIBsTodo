@@ -24,7 +24,7 @@ final class LoggedInInteractor: Interactor, LoggedInInteractable {
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    override init() {}
+    override init() { }
 
     override func didBecomeActive() {
         super.didBecomeActive()

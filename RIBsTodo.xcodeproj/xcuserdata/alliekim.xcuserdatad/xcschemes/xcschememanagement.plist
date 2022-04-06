@@ -4,28 +4,26 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>RIBsTodo-Debug.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>RIBsTodo-Release.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>RIBsTodo.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>7FC6E13427F18DFE00E7B2BD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7FC6E14A27F18DFF00E7B2BD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7FC6E15427F18DFF00E7B2BD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
+			<integer>4</integer>
 		</dict>
 	</dict>
 </dict>
