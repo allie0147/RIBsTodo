@@ -10,10 +10,12 @@ import UIKit
 extension UIViewController {
 
     func showLoading() {
-        AlertViewController().showLoadingIndicator()
+        DispatchQueue.main.async {
+            AlertViewController.shared.showLoadingIndicator()
+        }
     }
 
     func hideLoading() {
-        AlertViewController().hideLoadingIndicator()
+        AlertViewController.shared.hideLoadingIndicator()
     }
 }

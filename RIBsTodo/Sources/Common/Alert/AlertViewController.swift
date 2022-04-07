@@ -11,8 +11,11 @@ import UIKit
 
 final class AlertViewController: AlertPresentable {
 
-    func showLoadingIndicator() {
+    static let shared = AlertViewController()
 
+    private init() { }
+
+    func showLoadingIndicator() {
         guard let window = UIApplication.shared.windows.last else { return }
 
         var indicatorView: AnimationView
@@ -46,7 +49,6 @@ final class AlertViewController: AlertPresentable {
             window.insertSubview(dimmedView, at: 0)
             window.addSubview(indicatorView)
         }
-
         indicatorView.play()
     }
 
