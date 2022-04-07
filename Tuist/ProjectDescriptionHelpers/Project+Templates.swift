@@ -110,6 +110,13 @@ extension Project {
             "UILaunchStoryboardName": "LaunchScreen",
             "UILaunchScreen": [:],
             "UIUserInterfaceStyle": "Light",
+            "UIStatusBarStyle": "UIStatusBarStyleLightContent",
+            "UISupportedInterfaceOrientations": [
+                "UIInterfaceOrientationPortrait"
+            ],
+            "UISupportedInterfaceOrientations~ipad": [
+                "UIInterfaceOrientationPortrait"
+            ],
 //            "UIApplicationSceneManifest": [
 //                "UIApplicationSupportsMultipleScenes": false,
 //                "UISceneConfigurations": [
@@ -187,20 +194,22 @@ extension Project {
             "OTHER_LDFLAGS": "-ObjC",
             "ALWAYS_SEARCH_USER_PATHS": "NO",
             "SWIFT_VERSION": "5.5",
+            "BUILD_ACTIVE_ARCHITECTURE_ONLY": "YES",
+            "DEVELOPMENT_TEAM": "F7DAHNMXP5",
         ]
 
-        #if arch(x86_64)
-//            "ONLY_ACTIVE_ARCH": "NO",
-//                "EXCLUDED_ARCHS": "arm64",
-            baseSettings["ONLY_ACTIVE_ARCH"] = "NO"
-            baseSettings["ARCHS"] = "$(ARCHS_STANDARD)"
+//        #if arch(x86_64)
+////            "ONLY_ACTIVE_ARCH": "NO",
+////                "EXCLUDED_ARCHS": "arm64",
+//            baseSettings["ONLY_ACTIVE_ARCH"] = "NO"
+//            baseSettings["ARCHS"] = "$(ARCHS_STANDARD)"
+////            baseSettings["EXCLUDED_ARCHS"] = "$(ARCHS_STANDARD)"
+//        #else
+////            baseSettings["ARCHITECTURES"] = "$(ARCHS_STANDARD_32_BIT)"
 //            baseSettings["EXCLUDED_ARCHS"] = "$(ARCHS_STANDARD)"
-        #else
-//            baseSettings["ARCHITECTURES"] = "$(ARCHS_STANDARD_32_BIT)"
-            baseSettings["EXCLUDED_ARCHS"] = "$(ARCHS_STANDARD)"
-        #endif
+//        #endif
 //            "HEADER_SEARCH_PATHS": "../**",
-        return Settings.settings(
+        return .settings(
             base: baseSettings,
             configurations: [.debug(name: .debug),
                                  .release(name: .release)],
