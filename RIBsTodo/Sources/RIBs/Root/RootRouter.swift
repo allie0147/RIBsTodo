@@ -13,11 +13,11 @@ protocol RootInteractable: Interactable, LoggedOutListener, LoggedInListener {
     var listener: RootListener? { get set }
 }
 
-protocol RootViewControllable: ViewControllable {
+protocol RootViewControllable: NavigateViewControllable {
     // TODO: Declare methods the router invokes to manipulate the view hierarchy.
-    func replaceModal(viewController: ViewControllable)
-    func dismiss(viewController: ViewControllable)
-    func present(viewController: ViewControllable)
+//    func replaceModal(viewController: ViewControllable)
+    func push(viewController: ViewControllable, animation: Bool)
+    func pop(viewController: ViewControllable, animation: Bool)
 }
 
 final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, RootRouting {
@@ -40,13 +40,17 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         routeToLoggedOut()
     }
 
-    func routeToLoggedIn() {
-        if let loggedOut = loggedOutRouter {
-            detachChild(loggedOut)
-            viewController.dismiss(viewController: loggedOut.viewControllable)
-            self.loggedOutRouter = nil
-        }
-        let loggedIn = loggedInBuilder.build(withListener: interactor)
+    func routeToLoggedIn(email: String, password: String) {
+//        if let loggedOut = loggedOutRouter {
+//            detachChild(loggedOut)
+//            viewController.popViewController(viewController: loggedOut.viewControllable)
+//            self.loggedOutRouter = nil
+//        }
+        let loggedIn = loggedInBuilder.build(
+            withListener: interactor,
+            email: email,
+            password: password
+        )
         attachChild(loggedIn)
     }
 
@@ -57,13 +61,34 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     private let loggedInBuilder: LoggedInBuildable
 
     private func routeToLoggedOut() {
+//        routeToLoggedOutController()
         let loggedOut = loggedOutBuilder.build(withListener: interactor)
         self.loggedOutRouter = loggedOut
         attachChild(loggedOut)
-        viewController.present(viewController: loggedOut.viewControllable)
+//        viewController.pushViewController(viewController: loggedOut.viewControllable)
+        viewController.push(viewController: loggedOut.viewControllable, animation: true)
+//        viewController.presentNavigationViewController(root: self.viewControllable)
+//        viewController.presentNavigationViewController(root: loggedOut.viewControllable)
+//        viewController.pushViewController(viewController: loggedOut.viewControllable)
+
+//        viewController.replaceModal(viewController: loggedOut.viewControllable)
 //        let navController = UINavigationController(root: loggedOut.viewControllable)
-//
 //        viewController.replaceModal(viewController: navController)
     }
 
+    private var window: UIWindow? {
+        return UIApplication.shared.keyWindow
+    }
+
+//    func routeToOnboarding() {
+//        window?.rootViewController = OnboardingViewController
+//    }
+//
+//    func routeToHomeTabbar() {
+//        window?.rootViewController = HomeTabbarViewController
+//    }
+
+    func routeToLoggedOutController() {
+        window?.rootViewController = LoggedOutViewController()
+    }
 }

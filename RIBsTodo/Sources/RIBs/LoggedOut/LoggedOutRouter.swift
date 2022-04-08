@@ -12,7 +12,7 @@ protocol LoggedOutInteractable: Interactable {
     var listener: LoggedOutListener? { get set }
 }
 
-protocol LoggedOutViewControllable: ViewControllable {
+protocol LoggedOutViewControllable: NavigateViewControllable {
     // TODO: Declare methods the router invokes to manipulate the view hierarchy.
 }
 

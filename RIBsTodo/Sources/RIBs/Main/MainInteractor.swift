@@ -1,35 +1,37 @@
 //
-//  RootInteractor.swift
-//  RIBsTodo
+//  MainInteractor.swift
+//  RIBsTodoTests
 //
-//  Created by Allie Kim on 2022/03/28.
+//  Created by Allie Kim on 2022/04/07.
+//  Copyright © 2022 com.allieProject. All rights reserved.
 //
 
 import RIBs
 import RxSwift
 
-protocol RootRouting: ViewableRouting {
+protocol MainRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
-    func routeToLoggedIn(email: String, password: String)
 }
 
-protocol RootPresentable: Presentable {
-    var listener: RootPresentableListener? { get set }
+protocol MainPresentable: Presentable {
+    var listener: MainPresentableListener? { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
 }
 
-protocol RootListener: AnyObject {
+protocol MainListener: AnyObject {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+
+    func startMain()
 }
 
-final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteractable, RootPresentableListener {
+final class MainInteractor: PresentableInteractor<MainPresentable>, MainInteractable, MainPresentableListener {
 
-    weak var router: RootRouting?
-    weak var listener: RootListener?
+    weak var router: MainRouting?
+    weak var listener: MainListener?
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    override init(presenter: RootPresentable) {
+    override init(presenter: MainPresentable) {
         super.init(presenter: presenter)
         presenter.listener = self
     }
@@ -42,10 +44,5 @@ final class RootInteractor: PresentableInteractor<RootPresentable>, RootInteract
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
-    }
-
-    // MARK: - LoggedOutListener
-    func didLogin(withEmail email: String, password: String) {
-        router?.routeToLoggedIn(email: email, password: password)
     }
 }
