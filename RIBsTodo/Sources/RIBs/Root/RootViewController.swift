@@ -16,7 +16,18 @@ protocol RootPresentableListener: AnyObject {
     // interactor class.
 }
 
-final class RootViewController: UIViewController, RootPresentable, RootViewControllable {
+final class RootViewController: UINavigationController, RootPresentable, RootViewControllable {
+    func pop(viewController: ViewControllable, animation: Bool) {
+        self.popViewController(animated: true)
+    }
+
+
+    func push(viewController: ViewControllable, animation: Bool) {
+        self.pushViewController(viewController.uiviewController, animated: true)
+    }
+
+
+
 
     weak var listener: RootPresentableListener?
 
@@ -24,17 +35,6 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
         super.viewDidLoad()
 
         view.backgroundColor = .white
-    }
-
-    func present(viewController: ViewControllable) {
-        viewController.uiviewController.modalPresentationStyle = .overCurrentContext
-        present(viewController.uiviewController,
-                animated: true,
-                completion: nil)
-    }
-
-    func dismiss(viewController: ViewControllable) {
-        dismiss(animated: true, completion: nil)
     }
 
     func replaceModal(viewController: ViewControllable) {
@@ -66,7 +66,7 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
             animationInProgress = true
             targetViewController.uiviewController.modalPresentationStyle = .overCurrentContext
             present(targetViewController.uiviewController,
-                    animated: false) { [weak self] in
+                    animated: true) { [weak self] in
                 self?.animationInProgress = false
             }
         }
@@ -74,5 +74,4 @@ final class RootViewController: UIViewController, RootPresentable, RootViewContr
 }
 
 extension RootViewController: LoggedInViewControllable {
-
 }

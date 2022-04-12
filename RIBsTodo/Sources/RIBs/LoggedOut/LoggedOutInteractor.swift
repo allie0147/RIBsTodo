@@ -22,7 +22,7 @@ protocol LoggedOutPresentable: Presentable {
 
 protocol LoggedOutListener: AnyObject {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
-    func didLogin(withId id: String, password: String)
+    func didLogin(withEmail email: String, password: String)
 }
 
 final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, LoggedOutInteractable, LoggedOutPresentableListener {
@@ -62,6 +62,6 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
 
         // TODO: -regex
 
-        listener?.didLogin(withId: id!, password: password!)
+        listener?.didLogin(withEmail: id!, password: password!)
     }
 }

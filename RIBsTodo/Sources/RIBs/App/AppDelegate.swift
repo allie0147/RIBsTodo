@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
 
         let launchRouter = RootBuilder(dependency: AppComponent()).build()
+//        let launchRouter = NavigationBuilder(dependency: AppComponent()).build()
         self.launchRouter = launchRouter
         launchRouter.launch(from: window)
 
@@ -29,4 +30,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Private
     private var launchRouter: LaunchRouting?
 }
-
